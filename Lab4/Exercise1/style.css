@@ -1,0 +1,104 @@
+/* style.css */
+
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif; /* Using a common sans-serif font */
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f4f4f4; /* Light grey background */
+    color: #333; /* Dark grey text color */
+}
+
+/* Main heading for the page */
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    font-family: 'Georgia', serif; /* A more traditional font for headings */
+}
+
+/* Styling for each book container */
+.book-container {
+    background-color: #fff; /* White background for book cards */
+    border: 1px solid #ddd; /* Light grey border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px;
+    margin-bottom: 20px; /* Space between book cards */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: transform 0.2s ease-in-out; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for book containers */
+.book-container:hover {
+    transform: translateY(-5px); /* Slightly lift the card on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+/* Styling for the book title heading within the container */
+.book-container h2 {
+    color: #5D4037; /* A warm brown color for book titles */
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.8em; /* Larger font size for the title */
+    border-bottom: 2px solid #D7CCC8; /* Light brown underline for the title */
+    padding-bottom: 10px;
+}
+
+/* Styling for paragraphs within the book container */
+.book-container p {
+    margin-bottom: 10px; /* Space between paragraphs */
+    font-size: 1em;
+    color: #555; /* Slightly lighter text color for details */
+}
+
+/* Styling for the strong tags (labels like "Author:", "Genre:") */
+.book-container p strong {
+    color: #333; /* Darker color for labels to make them stand out */
+    margin-right: 5px; /* Space after the label */
+}
+
+/* Styling for messages like "Book object created/destroyed" */
+.system-message {
+    font-style: italic;
+    color: #777; /* Grey color for system messages */
+    font-size: 0.9em;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Horizontal rule styling */
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+/* Styling for the final "End of script" message */
+.end-script-message {
+    text-align: center;
+    margin-top: 40px;
+    color: #888;
+    font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .book-container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    .book-container h2 {
+        font-size: 1.5em;
+    }
+}
