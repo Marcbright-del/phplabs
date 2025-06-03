@@ -402,3 +402,16 @@ body {
 .user-avatar[data-letter="G"] { background-color: #2196f3; }
 .user-avatar[data-letter="H"] { background-color: #03a9f4; }
 /* Add more colors for other letters as needed */
+
+/* Improved action buttons spacing */
+.actions-cell {
+    white-space: nowrap;
+    min-width: 160px;
+}
+.actions-cell .btn {
+    margin-right: 5px;
+}
+.actions-cell form.d-inline {
+    display: inline-block;
+    margin-left: 5px;
+}

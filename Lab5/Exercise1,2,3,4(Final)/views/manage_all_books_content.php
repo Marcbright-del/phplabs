@@ -75,8 +75,8 @@ $result = $db->query($sql);
                             <form action="book_actions.php" method="POST" class="d-inline" onsubmit="return confirmDelete('<?php echo htmlspecialchars(addslashes($book['title'])); ?>');">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" value="<?php echo $book['book_id']; ?>">
-                                <button type="submit" class="btn btn-danger" title="Delete">
-                                    <i class="fas fa-trash-alt"></i> Delete
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                    <i class="fas fa-trash"></i> Delete
                                 </button>
                             </form>
                         </td>
