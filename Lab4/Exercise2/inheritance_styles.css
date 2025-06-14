@@ -1,0 +1,56 @@
+/* Basic body styling for a clean look */
+body {
+    font-family: sans-serif; /* Use a common sans-serif font */
+    background-color: #f4f7f6; /* Light background color */
+    margin: 0; /* Remove default body margin */
+    padding: 20px; /* Add some padding around the content */
+    line-height: 1.6; /* Improve readability with line spacing */
+    color: #333; /* Dark gray text color */
+}
+
+/* Styling for headings */
+h2 {
+    color: #0056b3; /* A shade of blue for headings */
+    border-bottom: 2px solid #0056b3; /* Add a bottom border */
+    padding-bottom: 5px; /* Space between text and border */
+    margin-top: 20px; /* Space above the heading */
+    margin-bottom: 15px; /* Space below the heading */
+}
+
+/* Styling for the output text from displayProduct methods */
+/* Since the output uses <br>, we'll style the container or body */
+/* Alternatively, if you wrapped the output in <p> tags in PHP, you could style p */
+/* For this example, styling the body and adding margin to h2 is sufficient */
+
+/* You could add more specific styles if needed, e.g., */
+/*
+.product-details {
+    background-color: #e9ecef;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+*/
+
+/* Style for the separator line break */
+br {
+    /* Browsers handle <br> differently, direct styling is limited */
+    /* Adding margin to elements before/after <br> is more effective */
+}
+
+/* Basic styling for the link container if you add links later */
+.link-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.link-container a {
+    display: inline-block;
+    margin: 0 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.link-container a:hover {
+    text-decoration: underline;
+}

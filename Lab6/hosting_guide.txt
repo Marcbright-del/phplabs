@@ -1,0 +1,118 @@
+# Hosting Lab5 on a Local Network
+
+This guide explains how to host the Lab5 library application on your local network, making it accessible to other devices on the same network.
+
+## Prerequisites
+
+1. A computer with PHP (7.4+ recommended) installed
+2. MySQL/MariaDB database server
+3. The Lab5 application files
+4. Optional: A dedicated web server like Apache or Nginx (though PHP's built-in server works for testing)
+
+## Method 1: Using PHP's Built-in Server (Quick Setup)
+
+1. **Find your computer's local IP address**:
+   - Windows: Open Command Prompt and type `ipconfig`
+   - macOS/Linux: Open Terminal and type `ifconfig` or `ip addr`
+   - Look for IPv4 Address (typically starts with 192.168.x.x or 10.0.x.x)
+
+2. **Start PHP's built-in web server**:
+   ```
+   cd path/to/Lab5/Exercise1,2,3,4(Final)
+   php -S 0.0.0.0:8000
+   ```
+   The `0.0.0.0` binds the server to all network interfaces, making it accessible from other devices.
+
+3. **Access from other devices**:
+   - On other devices on the same network, open a browser and navigate to:
+   - `http://YOUR_IP_ADDRESS:8000` (replace YOUR_IP_ADDRESS with the IP found in step 1)
+
+## Method 2: Using Apache (Production-like Setup)
+
+1. **Install Apache**:
+   - Windows: Use XAMPP, WampServer, or similar
+   - macOS: Use MAMP or Homebrew
+   - Linux: `sudo apt install apache2` (Ubuntu/Debian) or equivalent
+
+2. **Configure Virtual Host**:
+   Edit your Apache configuration (httpd.conf or create a new .conf file in sites-available):
+   ```
+   <VirtualHost *:80>
+       ServerName library.local
+       DocumentRoot "/path/to/Lab5/Exercise1,2,3,4(Final)"
+       <Directory "/path/to/Lab5/Exercise1,2,3,4(Final)">
+           Options Indexes FollowSymLinks
+           AllowOverride All
+           Require all granted
+       </Directory>
+   </VirtualHost>
+   ```
+
+3. **Update hosts file on server**:
+   Add this line to your hosts file:
+   ```
+   127.0.0.1 library.local
+   ```
+
+4. **Restart Apache**:
+   - Windows (XAMPP): Use XAMPP Control Panel
+   - macOS (MAMP): Use MAMP Control Panel
+   - Linux: `sudo systemctl restart apache2`
+
+5. **Access from other devices**:
+   - On other devices, use `http://YOUR_IP_ADDRESS`
+   - For better experience, add the server's IP to each client's hosts file:
+     ```
+     192.168.1.x library.local
+     ```
+     Then access using `http://library.local`
+
+## Database Configuration
+
+1. **Configure MySQL to accept remote connections** (if needed):
+   Edit my.cnf or my.ini and change:
+   ```
+   bind-address = 0.0.0.0
+   ```
+
+2. **Create a MySQL user with network access**:
+   ```sql
+   CREATE USER 'libraryuser'@'%' IDENTIFIED BY 'password';
+   GRANT ALL PRIVILEGES ON LibraryDB3.* TO 'libraryuser'@'%';
+   FLUSH PRIVILEGES;
+   ```
+
+3. **Update database connection in Lab5**:
+   Edit `includes/db_connect.php` to use the new user credentials.
+
+## Security Considerations
+
+For a local network setup (not public internet):
+
+1. **Use strong database passwords**
+2. **Update the CSRF token implementation** to work with multiple devices
+3. **Ensure file permissions are properly set**:
+   - PHP files: 644 (rw-r--r--)
+   - Directories: 755 (rwxr-xr-x)
+   - Configuration files: 600 (rw-------)
+
+4. **Firewall settings**:
+   - Allow connections only from your local network range
+   - Example for UFW (Ubuntu): `sudo ufw allow from 192.168.1.0/24 to any port 80`
+
+## Troubleshooting
+
+1. **Cannot connect from other devices**:
+   - Check firewall settings on the server
+   - Verify the server IP address is correct
+   - Test if the port is open: `telnet server_ip 80`
+
+2. **Database connection issues**:
+   - Check if MySQL is configured to accept remote connections
+   - Verify the database user has proper permissions
+   - Test connection: `mysql -u username -p -h server_ip`
+
+3. **File permission errors**:
+   - Check web server error logs
+   - Ensure the web server user has read access to all files
+   - For upload functionality, ensure write permissions on upload directories
