@@ -1,6 +1,5 @@
 # 📚 Library Management System - Complete Lab Series
 
-<<<<<<< HEAD
 ## 🎥 Demonstration Videos
 Demonstration videos have been added to show the implementation and functionality of:
 - Lab 2: 
@@ -9,8 +8,6 @@ Demonstration videos have been added to show the implementation and functionalit
 - Lab 5: 
 - Lab 6: Security
 
-=======
->>>>>>> 262e7bb692948c8d24078d0b5cb8f1daf4c050df
 ## 🌟 Overview
 This repository contains a comprehensive series of **six progressive labs** that build a complete Library Management System using **PHP and MySQL**. Each lab focuses on different aspects of web development, gradually transforming a simple CRUD application into a professional, secure, and feature-rich web application with API capabilities.
 
