@@ -1,10 +1,7 @@
 <?php
 require_once 'csrf_token.php';
-<<<<<<< HEAD
-require_once '../Lab5/Exercise4/includes/db_connect.php';
-=======
+
 require_once '../Lab5/Exercise1,2,3,4(Final)/includes/db_connect.php';
->>>>>>> 262e7bb692948c8d24078d0b5cb8f1daf4c050df
 
 // Process form submissions
 $sql_result = $xss_output = $csrf_status = '';
